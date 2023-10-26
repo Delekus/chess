@@ -1,0 +1,244 @@
+<!-- Сообщаем браузеру как стоит обрабатывать эту странницу -->
+<!DOCTYPE html>
+<!-- Оболочка документа, указываем язык содержимого -->
+<html lang="ru">
+<!-- Заголовок страницы, контейнер для других важных данных (не отображается) -->
+
+<head>
+	<!-- Заголовок страницы в браузере -->
+	<title>Chess</title>
+	<meta charset="UTF-8">
+	<style>
+		body {
+			background-color: cyan;
+		}
+		h1{
+			text-align: center;
+		}
+		.container {
+			background-color: #fff;
+			border: 2px solid black;
+			width: 452px;
+			margin: 30px auto;
+		}
+		.board{
+			border-collapse: collapse;
+			border-spacing: 0px;
+			padding: 0px;
+			margin: auto;
+		}
+		.diagram_horizontal{
+			width: 48px;
+			height: 24px;
+		}
+		.diagram_vertical{
+			width: 24px;
+			height: 48px;
+
+		}
+		.board_cell_white{
+			width: 48px;
+			height: 48px;
+		}
+		.board_cell_black{
+			width: 48px;
+			height: 48px;
+			background-color: rgba(0,0,0,0.5);;
+		}
+		.frame_top {
+			border-top: 2px solid black;
+		}
+		.frame_right {
+			border-right: 2px solid black;;
+		}
+		.frame_bottom {
+			border-bottom: 2px solid black;;
+		}
+		.frame_left {
+			border-left: 2px solid black;;
+		}
+		.figure {
+			width: 48px;
+			height: 48px;
+			background-image: url(img/chess.png);
+			background-repeat: no-repeat;
+		}
+		.figure_black_king{
+			background-position: 0px 2px;
+		}
+		.figure_black_queen{
+			background-position: -48px 2px;
+		}
+		.figure_black_rook{
+			background-position: -96px 2px;
+		}
+		.figure_black_elephant{
+			background-position: -144px 2px;
+		}
+		.figure_black_horse{
+			background-position: -192px 2px;
+		}
+		.figure_black_pawn{
+			background-position: -240px 2px;
+		}
+
+		.figure_white_king{
+			background-position: 0px -48px;
+		}
+		.figure_white_queen{
+			background-position: -48px -48px;
+		}
+		.figure_white_rook{
+			background-position: -96px -48px;
+		}
+		.figure_white_elephant{
+			background-position: -144px -48px;
+		}
+		.figure_white_horse{
+			background-position: -192px -48px;
+		}
+		.figure_white_pawn{
+			background-position: -240px -48px;
+		}
+	</style>
+</head>
+<!-- Отображает тело страницы -->
+<body>
+	<h1>Шахматы</h1>
+
+	<div class="container">
+		<table class="board">
+			<tr>
+				<th></th>
+				<th class="diagram_horizontal frame_bottom">a</th> 
+				<th class="diagram_horizontal frame_bottom">b</th>
+				<th class="diagram_horizontal frame_bottom">c</th>
+				<th class="diagram_horizontal frame_bottom">d</th>
+				<th class="diagram_horizontal frame_bottom">e</th>
+				<th class="diagram_horizontal frame_bottom">f</th>
+				<th class="diagram_horizontal frame_bottom">g</th>
+				<th class="diagram_horizontal frame_bottom">h</th>
+				<th></th>
+			</tr>
+
+			<tr>
+				<th class="diagram_vertical frame_right">8</th>
+				<td class="board_cell_white figure figure_black_rook"></td> <!--A8-->
+				<td class="board_cell_black figure figure_black_horse"></td> <!--B8-->
+				<td class="board_cell_white figure figure_black_elephant"></td> <!--C8-->
+				<td class="board_cell_black figure figure_black_queen"></td> <!--D8-->
+				<td class="board_cell_white figure figure_black_king"></td> <!--E8-->
+				<td class="board_cell_black figure figure_black_elephant"></td> <!--F8-->
+				<td class="board_cell_white figure figure_black_horse"></td> <!--G8-->
+				<td class="board_cell_black figure figure_black_rook"></td> <!--H8-->
+				<th class="diagram_vertical frame_left">8</th>
+			</tr>
+
+			<tr>
+				<th class="diagram_vertical frame_right">7</th>
+				<td class="board_cell_black figure figure_black_pawn"></td> <!--A7-->
+				<td class="board_cell_white figure figure_black_pawn"></td> <!--B7-->
+				<td class="board_cell_black figure figure_black_pawn"></td> <!--C7-->
+				<td class="board_cell_white figure figure_black_pawn"></td> <!--D7-->
+				<td class="board_cell_black figure figure_black_pawn"></td> <!--E7-->
+				<td class="board_cell_white figure figure_black_pawn"></td> <!--F7-->
+				<td class="board_cell_black figure figure_black_pawn"></td> <!--G7-->
+				<td class="board_cell_white figure figure_black_pawn"></td> <!--H7-->
+				<th class="diagram_vertical frame_left">7</th>
+			</tr>
+
+			<tr>
+				<th class="diagram_vertical frame_right">6</th>
+				<td class="board_cell_white"></td> <!--A6-->
+				<td class="board_cell_black"></td> <!--B6-->
+				<td class="board_cell_white"></td> <!--C6-->
+				<td class="board_cell_black"></td> <!--D6-->
+				<td class="board_cell_white"></td> <!--E6-->
+				<td class="board_cell_black"></td> <!--F6-->
+				<td class="board_cell_white"></td> <!--G6-->
+				<td class="board_cell_black"></td> <!--H6-->
+				<th class="diagram_vertical frame_left">6</th>
+			</tr>
+
+			<tr>
+				<th class="diagram_vertical frame_right">5</th>
+				<td class="board_cell_black"></td> <!--A5-->
+				<td class="board_cell_white"></td> <!--B5-->
+				<td class="board_cell_black"></td> <!--C5-->
+				<td class="board_cell_white"></td> <!--D5-->
+				<td class="board_cell_black"></td> <!--E5-->
+				<td class="board_cell_white"></td> <!--F5-->
+				<td class="board_cell_black"></td> <!--G5-->
+				<td class="board_cell_white"></td> <!--G5-->
+				<th class="diagram_vertical frame_left">5</th>
+			</tr>
+
+			<tr>
+				<th class="diagram_vertical frame_right">4</th>
+				<td class="board_cell_white"></td> <!--A4-->
+				<td class="board_cell_black"></td> <!--B4-->
+				<td class="board_cell_white"></td> <!--C4-->
+				<td class="board_cell_black"></td> <!--D4-->
+				<td class="board_cell_white"></td> <!--E4-->
+				<td class="board_cell_black"></td> <!--F4-->
+				<td class="board_cell_white"></td> <!--G4-->
+				<td class="board_cell_black"></td> <!--H4-->
+				<th class="diagram_vertical frame_left">4</th>
+			</tr>
+
+			<tr>
+				<th class="diagram_vertical frame_right">3</th>
+				<td class="board_cell_black"></td> <!--A3-->
+				<td class="board_cell_white"></td> <!--B3-->
+				<td class="board_cell_black"></td> <!--C3-->
+				<td class="board_cell_white"></td> <!--D3-->
+				<td class="board_cell_black"></td> <!--E3-->
+				<td class="board_cell_white"></td> <!--F3-->
+				<td class="board_cell_black"></td> <!--G3-->
+				<td class="board_cell_white"></td> <!--H3-->
+				<th class="diagram_vertical frame_left">3</th>
+			</tr>
+
+			<tr>
+				<th class="diagram_vertical frame_right">2</th>
+				<td class="board_cell_white figure figure_white_pawn"></td> <!--A2-->
+				<td class="board_cell_black figure figure_white_pawn"></td> <!--B2-->
+				<td class="board_cell_white figure figure_white_pawn"></td> <!--C2-->
+				<td class="board_cell_black figure figure_white_pawn"></td> <!--D2-->
+				<td class="board_cell_white figure figure_white_pawn"></td> <!--E2-->
+				<td class="board_cell_black figure figure_white_pawn"></td> <!--F2-->
+				<td class="board_cell_white figure figure_white_pawn"></td> <!--G2-->
+				<td class="board_cell_black figure figure_white_pawn"></td> <!--H2-->
+				<th class="diagram_vertical frame_left">2</th>
+			</tr>
+
+			<tr>
+				<th class="diagram_vertical frame_right">1</th>
+				<td class="board_cell_black figure figure_white_rook"></td> <!--A1-->
+				<td class="board_cell_white figure figure_white_horse"></td> <!--B1-->
+				<td class="board_cell_black figure figure_white_elephant"></td> <!--C1-->
+				<td class="board_cell_white figure figure_white_queen"></td> <!--D1-->
+				<td class="board_cell_black figure figure_white_king"></td> <!--E1-->
+				<td class="board_cell_white figure figure_white_elephant"></td> <!--F1-->
+				<td class="board_cell_black figure figure_white_horse"></td> <!--G1-->
+				<td class="board_cell_white figure figure_white_rook"></td> <!--H1-->
+				<th class="diagram_vertical frame_left">1</th>
+			</tr>
+
+			<tr>
+				<th></th>
+				<th class="diagram_horizontal frame_top">a</th>
+				<th class="diagram_horizontal frame_top">b</th>
+				<th class="diagram_horizontal frame_top">c</th>
+				<th class="diagram_horizontal frame_top">d</th>
+				<th class="diagram_horizontal frame_top">e</th>
+				<th class="diagram_horizontal frame_top">f</th>
+				<th class="diagram_horizontal frame_top">g</th>
+				<th class="diagram_horizontal frame_top">h</th>
+				<th></th>
+			</tr>
+		</table>
+	</div>
+</body>
+
+</html>
